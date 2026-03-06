@@ -158,68 +158,94 @@ export default function Navbar() {
           </button>
 
           {/* LINKS */}
-          <nav className="space-y-8 font-serif text-[16px]">
-            <Link onClick={() => setMobileOpen(false)} to="/about">
-              About
-            </Link>
+          <nav className="space-y-6 font-serif text-[16px] flex-1 flex flex-col">
+            <div className="space-y-4">
+              <Link onClick={() => setMobileOpen(false)} to="/about" className="block py-2 hover:opacity-60 transition-opacity">
+                About
+              </Link>
 
-            {/* MOBILE SERVICES */}
-            <div>
-              <button
-                aria-expanded={mobileSub === "services"}
-                aria-controls="mobile-services"
-                onClick={() =>
-                  setMobileSub(mobileSub === "services" ? null : "services")
-                }
-                className="w-full text-left hover:opacity-60 transition-opacity"
-              >
-                Services
-              </button>
-
-              {mobileSub === "services" && (
-                <div
-                  id="mobile-services"
-                  role="menu"
-                  className="mt-4 ml-4 flex flex-col items-start gap-3 text-[12px] tracking-[0.2em] uppercase whitespace-nowrap text-black/70"
+              {/* MOBILE SERVICES */}
+              <div className="border-b border-black/10 pb-4">
+                <button
+                  aria-expanded={mobileSub === "services"}
+                  aria-controls="mobile-services"
+                  onClick={() =>
+                    setMobileSub(mobileSub === "services" ? null : "services")
+                  }
+                  className="w-full text-left py-2 hover:opacity-60 transition-opacity flex justify-between items-center"
                 >
-                  <Link onClick={() => setMobileOpen(false)} to="/services/wedding" className="hover:text-black transition-colors">Full Service Wedding Design</Link>
-                  <Link onClick={() => setMobileOpen(false)} to="/services/virtual" className="hover:text-black transition-colors">Virtual Design Advice</Link>
-                  <Link onClick={() => setMobileOpen(false)} to="/services/styling" className="hover:text-black transition-colors">Photo Styling</Link>
-                  <Link onClick={() => setMobileOpen(false)} to="/services/creative" className="hover:text-black transition-colors">Creative Direction</Link>
-                </div>
-              )}
-            </div>
+                  <span>Services</span>
+                  <span className="text-[12px]">{mobileSub === "services" ? "−" : "+"}</span>
+                </button>
 
-            {/* MOBILE PORTFOLIO */}
-            <div>
-              <button
-                aria-expanded={mobileSub === "portfolio"}
-                aria-controls="mobile-portfolio"
-                onClick={() =>
-                  setMobileSub(mobileSub === "portfolio" ? null : "portfolio")
-                }
-                className="w-full text-left hover:opacity-60 transition-opacity"
-              >
-                Portfolio
-              </button>
+                {mobileSub === "services" && (
+                  <div
+                    id="mobile-services"
+                    role="menu"
+                    className="mt-3 ml-4 flex flex-col gap-2 text-[13px] text-black/70"
+                  >
+                    <Link onClick={() => setMobileOpen(false)} to="/services/wedding" className="py-1.5 hover:text-black transition-colors">
+                      Full Service Wedding Design
+                    </Link>
+                    <Link onClick={() => setMobileOpen(false)} to="/services/virtual" className="py-1.5 hover:text-black transition-colors">
+                      Virtual Design Advice
+                    </Link>
+                    <Link onClick={() => setMobileOpen(false)} to="/services/styling" className="py-1.5 hover:text-black transition-colors">
+                      Photo Styling
+                    </Link>
+                    <Link onClick={() => setMobileOpen(false)} to="/services/creative" className="py-1.5 hover:text-black transition-colors">
+                      Creative Direction
+                    </Link>
+                  </div>
+                )}
+              </div>
 
-              {mobileSub === "portfolio" && (
-                <div
-                  id="mobile-portfolio"
-                  role="menu"
-                  className="mt-4 ml-4 flex flex-col items-start gap-3 text-[12px] tracking-[0.2em] uppercase whitespace-nowrap text-black/70"
+              {/* MOBILE PORTFOLIO */}
+              <div className="border-b border-black/10 pb-4">
+                <button
+                  aria-expanded={mobileSub === "portfolio"}
+                  aria-controls="mobile-portfolio"
+                  onClick={() =>
+                    setMobileSub(mobileSub === "portfolio" ? null : "portfolio")
+                  }
+                  className="w-full text-left py-2 hover:opacity-60 transition-opacity flex justify-between items-center"
                 >
-                  <Link onClick={() => setMobileOpen(false)} to="/portfolio/wedding" className="hover:text-black transition-colors">Wedding</Link>
-                  <Link onClick={() => setMobileOpen(false)} to="/portfolio/fashion" className="hover:text-black transition-colors">Fashion Styling</Link>
-                  <Link onClick={() => setMobileOpen(false)} to="/portfolio/products" className="hover:text-black transition-colors">Products</Link>
-                  <Link onClick={() => setMobileOpen(false)} to="/portfolio/creative" className="hover:text-black transition-colors">Creative</Link>
-                </div>
-              )}
-            </div>
+                  <span>Portfolio</span>
+                  <span className="text-[12px]">{mobileSub === "portfolio" ? "−" : "+"}</span>
+                </button>
 
-            <Link onClick={() => setMobileOpen(false)} to="/blog">Blog</Link>
-            <Link onClick={() => setMobileOpen(false)} to="/contact">Contact</Link>
-            <Link onClick={() => setMobileOpen(false)} to="/book">Book</Link>
+                {mobileSub === "portfolio" && (
+                  <div
+                    id="mobile-portfolio"
+                    role="menu"
+                    className="mt-3 ml-4 flex flex-col gap-2 text-[13px] text-black/70"
+                  >
+                    <Link onClick={() => setMobileOpen(false)} to="/portfolio/wedding" className="py-1.5 hover:text-black transition-colors">
+                      Wedding
+                    </Link>
+                    <Link onClick={() => setMobileOpen(false)} to="/portfolio/fashion" className="py-1.5 hover:text-black transition-colors">
+                      Fashion Styling
+                    </Link>
+                    <Link onClick={() => setMobileOpen(false)} to="/portfolio/products" className="py-1.5 hover:text-black transition-colors">
+                      Products
+                    </Link>
+                    <Link onClick={() => setMobileOpen(false)} to="/portfolio/creative" className="py-1.5 hover:text-black transition-colors">
+                      Creative
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <Link onClick={() => setMobileOpen(false)} to="/blog" className="block py-2 hover:opacity-60 transition-opacity">
+                Blog
+              </Link>
+              <Link onClick={() => setMobileOpen(false)} to="/contact" className="block py-2 hover:opacity-60 transition-opacity">
+                Contact
+              </Link>
+              <Link onClick={() => setMobileOpen(false)} to="/book" className="block py-2 hover:opacity-60 transition-opacity font-semibold">
+                Book
+              </Link>
+            </div>
           </nav>
 
           {/* SOCIAL ICONS (MOBILE) */}
